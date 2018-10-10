@@ -12,7 +12,7 @@ var SHEET_NAME_SCRIPT_INFO = "script_info";
 var ROW_START = "3";
 /** 役割列 */
 var COL_ROLE = "C";
-/** メンション列 */
+/** ユーザID列 */
 var COL_USER_ID = "D";
 
 /** 情報取得 **/
