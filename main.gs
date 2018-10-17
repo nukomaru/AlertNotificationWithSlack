@@ -28,7 +28,7 @@ var USER_ID = "userId";
 
 function notification(){
   var infoList = roleReplacement(getInfo());
-  var message = "今週のアラート対応者\n";
+  var message = messageCreate();
   for(var i=0;i<infoList.length;i++){
     message += "<@" + infoList[i][USER_ID] + "> " + infoList[i][ROLE] + "\n";
   }
@@ -80,4 +80,10 @@ function roleReplacement(infoList){
     scriptInfoSheet.getRange(COL_USER_ID + (parseInt(ROW_START, 10) + i)).setValue(replacementInfo[USER_ID]);
   }
   return replacementInfoList;
+}
+
+function messageCreate(){
+  var start = new Date();
+  var end = new Date(start.getYear(), start.getMonth(), start.getDate() + 7);
+  return Utilities.formatDate( start, 'Asia/Tokyo', 'M月d日') + "~" + Utilities.formatDate( end, 'Asia/Tokyo', 'M月d日') + "のアラート対応者\n"
 }
